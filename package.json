@@ -1,0 +1,25 @@
+{
+  "name": "lab01_2",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js",
+    "start-server": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/quachanhhao1698/Funix_NJS101x_01-A_VN.git"
+  },
+  "author": "Quach Anh Hao",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/quachanhhao1698/Funix_NJS101x_01-A_VN/issues"
+  },
+  "homepage": "https://github.com/quachanhhao1698/Funix_NJS101x_01-A_VN#readme",
+  
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}
