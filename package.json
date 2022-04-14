@@ -18,8 +18,10 @@
     "url": "https://github.com/quachanhhao1698/Funix_NJS101x_01-A_VN/issues"
   },
   "homepage": "https://github.com/quachanhhao1698/Funix_NJS101x_01-A_VN#readme",
-  
   "devDependencies": {
     "nodemon": "^2.0.15"
+  },
+  "dependencies": {
+    "express": "^4.17.3"
   }
 }
