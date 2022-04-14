@@ -29,7 +29,7 @@ const requestsHandler = (req, res) => {
             });
             return req.on('end',() => {
                   const parsebody = Buffer.concat(body).toString();
-                  console.log(parsebody);
+                  // console.log(parsebody);
                   const message = parsebody.split('=')[1];
                   console.log(message);
                   fs.writeFile('message.txt', message, err => {
