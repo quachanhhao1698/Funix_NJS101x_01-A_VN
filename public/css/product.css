@@ -1,0 +1,38 @@
+.product-form {
+    width: 20rem;
+    max-width: 90%;
+    margin: auto;
+}
+
+.product-form button {
+    padding: 4px 8px;
+    background-color: white;
+    color: #00695c;
+    border-radius: 5px;
+    border: #00695c solid 1px;
+}
+
+.product-form button:hover {
+    color: yellow;
+    background-color: #00695c;
+}
+
+.product-item {
+    width: 20rem;
+    max-width: 95%;
+}
+
+.product__title {
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+.product__price {
+    text-align: center;
+    color: #4d4d4d;
+    margin-bottom: 0.5rem;
+}
+
+.product__description {
+    text-align: center;
+}
