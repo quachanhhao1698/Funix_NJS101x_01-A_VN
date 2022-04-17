@@ -4,18 +4,6 @@
     margin: auto;
 }
 
-.product-form button {
-    padding: 4px 8px;
-    background-color: white;
-    color: #00695c;
-    border-radius: 5px;
-    border: #00695c solid 1px;
-}
-
-.product-form button:hover {
-    color: yellow;
-    background-color: #00695c;
-}
 
 .product-item {
     width: 20rem;
