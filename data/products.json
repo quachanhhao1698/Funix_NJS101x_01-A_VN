@@ -1,8 +1,1 @@
-[
-    {   "id":"12345698",
-        "title": "A Book",
-        "imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
-        "description": "This is an awesome book!",
-        "price": "19"
-    }
-]
+[{"id":"12345698","title":"A Book","imageUrl":"https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg","description":"This is an awesome book!","price":"19"},{"id":0.13280460508203862,"title":"https://img.cppng.com/download/2020-06/48484-3-calligraphy-pen-download-image-png-file-hd.png","imageUrl":"Black Pen 2019","description":"10"}]
