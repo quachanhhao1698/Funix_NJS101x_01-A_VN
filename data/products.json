@@ -1,16 +1,1 @@
-[
-    {
-        "id": "12345698",
-        "title": "A Book",
-        "imageUrl": "https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg",
-        "description": "This is an awesome book!",
-        "price": "19"
-    },
-    {
-        "id": "0.7383813837615065",
-        "title": "Pen",
-        "imageUrl": "https://img.cppng.com/download/2020-06/48484-3-calligraphy-pen-download-image-png-file-hd.png",
-        "description": "Machine Pen, model bamboo, color black and gold",
-        "price": "2"
-    }
-]
+[{"id":"12345698","title":"A Book","imageUrl":"https://www.publicdomainpictures.net/pictures/10000/velka/1-1210009435EGmE.jpg","description":"This is an awesome book!","price":"19"},{"id":"0.7383813837615065","title":"Pen","imageUrl":"https://img.cppng.com/download/2020-06/48484-3-calligraphy-pen-download-image-png-file-hd.png","description":"Machine Pen, model bamboo, color black and gold","price":"2"},{"id":"0.12927490578294498","title":"book","imageUrl":"https://img.cppng.com/download/2020-06/48484-3-calligraphy-pen-download-image-png-file-hd.png","description":"asdad","price":"10"},{"id":"0.1894513366265318","title":"pen 12","imageUrl":"https://purepng.com/public/uploads/large/purepng.com-penpenapply-inksurfacewritingdrawingspecialized-uses-1421526587725ldjfh.png","description":"","price":"1"}]
