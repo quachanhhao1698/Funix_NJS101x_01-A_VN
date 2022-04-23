@@ -4,6 +4,7 @@ const path =require('path');
 const p = path.join(path.dirname(require.main.filename), 'data', 'cart.json');
 
 module.exports = class Cart {
+
     static addProduct(id,price) {
         fs.readFile(p, (err, data)=> {
             let cart = { products:[], totalPrice: 0 };
@@ -32,4 +33,29 @@ module.exports = class Cart {
             })
         });
     }
+
+    static deleteProduct(id, productPrice) {
+        fs.readFile(p, (err, data)=> {
+            if(err){
+                return;
+            }
+            const cart = JSON.parse(data);
+            const updatedCart = {...cart};
+            const product = updatedCart.products.find(p => p.id === id);
+            console.log('cart_product: ',product);
+            const productQty = product.qty;
+
+            updatedCart.products = updatedCart.products.filter(p => p.id !== id);
+            updatedCart.totalPrice = updatedCart.totalPrice - ( productPrice * productQty);
+
+            fs.writeFile(p, JSON.stringify(updatedCart), err =>{
+                console.log('ERROR_(Delete product): ',err);
+            })
+
+        });
+    }
+
+
+
+
 }
