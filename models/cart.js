@@ -42,6 +42,9 @@ module.exports = class Cart {
             const cart = JSON.parse(data);
             const updatedCart = {...cart};
             const product = updatedCart.products.find(p => p.id === id);
+            if(!product) {
+                return;
+            }
             console.log('cart_product: ',product);
             const productQty = product.qty;
 
