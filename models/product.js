@@ -15,15 +15,14 @@ module.exports = class Product {
   }
 
   static fetchAll() {
-    return db.execute('SELECt * FROM products');
+    return db.execute('SELECT * FROM products');
   }
 
   static deleteById(id) {
-    
   }
 
   static findById(id) {
-    
+    return db.execute('SELECT * FROM products WHERE id = ?',[id])
   }
 };
   
