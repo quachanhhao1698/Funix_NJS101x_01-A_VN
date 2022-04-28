@@ -21,13 +21,13 @@ const CartItem = require('./models/cart-item');
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use((req, res, next)=> {
-      User.findByPk(1)
-      .then(user => {
+app.use((req, res, next) => {
+    User.findByPk(1)
+        .then(user => {
             req.user = user;
             next();
-      })
-      .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
 });
 
 app.use('/admin', adminRoutes);
@@ -36,29 +36,30 @@ app.use(shopRoutes);
 app.use(errorController.get404);
 
 // Tạo liên kết giữa các bảng
-Product.belongsTo(User, { constrains: true, onDelete: 'CASCADE'}); //Product thuộc về User
-User.hasMany(Product);  // 1 User có nhiều Product
+Product.belongsTo(User, { constrains: true, onDelete: 'CASCADE' }); //Product thuộc về User
+User.hasMany(Product); // 1 User có nhiều Product
 User.hasOne(Cart); // 1 User có 1 Cart
 Cart.belongsTo(User); // Cart thuộc về User
-Cart.belongsToMany(Product, { through: CartItem} ); // Cart thuộc về nhiều Product -> 1 SP có thể nằm trong nhiều giỏ hàng
-Product.belongsToMany(Cart, { through: CartItem} ); // Product thuộc về nhiều Cart -> 1 giỏ hàng có thể chứa nhiều SP
+Cart.belongsToMany(Product, { through: CartItem }); // Cart thuộc về nhiều Product -> 1 SP có thể nằm trong nhiều giỏ hàng
+Product.belongsToMany(Cart, { through: CartItem }); // Product thuộc về nhiều Cart -> 1 giỏ hàng có thể chứa nhiều SP
 
 sequelize
-.sync({force: true})
-// .sync()
-.then( result => {
-      return User.findByPk(1);
-      // console.log(result);
-})
-.then(user => {
-      if(!user) {
-            return User.create({name: 'Max', email: 'test@test.com'});
-      }
-      return user;
-})
-.then(user => {
-      // console.log(user);
-      app.listen(3000)
-})
-.catch( err => console.log(err));
-
+// .sync({force: true})
+    .sync()
+    .then(result => {
+        return User.findByPk(1);
+        // console.log(result);
+    })
+    .then(user => {
+        if (!user) {
+            return User.create({ name: 'Max', email: 'test@test.com' });
+        }
+        return user;
+    })
+    .then(user => {
+        return user.createCart();
+    })
+    .then(cart => {
+        app.listen(3000);
+    })
+    .catch(err => console.log(err));
