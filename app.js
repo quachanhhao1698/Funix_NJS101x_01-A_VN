@@ -45,7 +45,7 @@ Cart.belongsTo(User); // Cart thuộc về User
 Cart.belongsToMany(Product, { through: CartItem }); // Cart thuộc về nhiều Product -> 1 SP có thể nằm trong nhiều giỏ hàng
 Product.belongsToMany(Cart, { through: CartItem }); // Product thuộc về nhiều Cart -> 1 giỏ hàng có thể chứa nhiều SP
 Order.belongsTo(User)
-User.hasOne(Order);
+User.hasMany(Order);
 Order.belongsToMany(Product, { through: OrderItem });
 
 sequelize
