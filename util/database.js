@@ -1,4 +1,3 @@
-const { get } = require("express/lib/response");
 const mongodb = require("mongodb");
 const MongoClient = mongodb.MongoClient;
 
@@ -10,7 +9,7 @@ const mongoConnect = callback => {
     "mongodb+srv://quachanhhao:01245312z@cluster0.zs7t6.mongodb.net/shop?retryWrites=true&w=majority"
   )
     .then((client) => {
-      console.log("Connected");
+      console.log("Connected!");
       _db = client.db();
       callback();
     })
@@ -28,6 +27,6 @@ const mongoConnect = callback => {
       throw 'No Database Found!';
     }
   }
-  
+
 exports.mongoConnect = mongoConnect;
 exports.getDb = getDb;
