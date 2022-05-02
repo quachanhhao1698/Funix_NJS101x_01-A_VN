@@ -18,15 +18,16 @@ const mongoConnect = callback => {
       console.log(err);
     });
 
-    const getDb = () => {
-      if(_db) {
-        return _db;
-      }
-      else {
-        throw 'No Database Found!';
-      }
+  };
+  
+  const getDb = () => {
+    if(_db) {
+      return _db;
     }
-};
-
+    else {
+      throw 'No Database Found!';
+    }
+  }
+  
 exports.mongoConnect = mongoConnect;
 exports.getDb = getDb;
