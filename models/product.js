@@ -49,6 +49,8 @@ class Product {
       })
       .catch((err) => console.log(err));
   };
+
+  
 }
 
 module.exports = Product;
