@@ -14,30 +14,31 @@ exports.getProducts = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
-// exports.getProduct = (req, res, next) => {
-//   const prodId = req.params.productId;
+exports.getProduct = (req, res, next) => {
+  const prodId = req.params.productId;
+  console.log('ID',prodId);
 
-//   Product.findAll({ where: { id: prodId } })
-//     .then((product) => {
-//       console.log("find_prod_where_id", product);
-//       res.render("shop/product-detail", {
-//         product: product[0],
-//         pageTitle: product[0].title,
-//         path: "/products",
-//       });
-//     })
-//     .catch((err) => console.log(err));
+  Product.findById(prodId)
+    .then((product) => {
+      // console.log("find_prod_where_id", product);
+      res.render("shop/product-detail", {
+        product: product,
+        pageTitle: product.title,
+        path: "/products/" + prodId,
+      });
+    })
+    .catch((err) => console.log(err));
 
-//   // Product.findByPk(prodId)
-//   //   .then(products => {
-//   //     res.render("shop/product-detail", {
-//   //       product: products,
-//   //       pageTitle: products.title,
-//   //       path: "/products",
-//   //     });
-//   //   })
-//   //   .catch((err) => console.log(err));
-// };
+  // Product.findByPk(prodId)
+  //   .then(products => {
+  //     res.render("shop/product-detail", {
+  //       product: products,
+  //       pageTitle: products.title,
+  //       path: "/products",
+  //     });
+  //   })
+  //   .catch((err) => console.log(err));
+};
 
 exports.getIndex = (req, res, next) => {
   Product.fetchAll()
