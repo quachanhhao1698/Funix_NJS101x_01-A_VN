@@ -1,5 +1,4 @@
 const mongodb = require("mongodb");
-const { ObjectId } = require("mongodb");
 
 const getDb = require("../util/database").getDb;
 
