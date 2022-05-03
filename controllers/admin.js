@@ -33,7 +33,6 @@ exports.getEditProduct = (req, res, next) => {
   const prodId = req.params.productId;
 
   Product.findById(prodId)
-    // Product.findByPk(prodId)
     .then((product) => {
       if (!product) {
         return res.redirect("/");
@@ -83,15 +82,12 @@ exports.getProducts = (req, res, next) => {
     .catch((err) => console.log(err));
 };
 
-// exports.postDeleteProduct = (req, res, next) => {
-//     const prodId = req.body.productId;
-//     Product.findByPk(prodId)
-//         .then(product => {
-//             return product.destroy();
-//         })
-//         .then(result => {
-//             console.log('Mess_postDeleteProduct: DELETED');
-//             res.redirect("/admin/products");
-//         })
-//         .catch(err => console.log('ERROR_postDeleteProduct: ', err))
-// };
+exports.postDeleteProduct = (req, res, next) => {
+    const prodId = req.body.productId;
+    Product.deleteProduct(prodId)
+        .then(result => {
+            console.log('Mess_postDeleteProduct: DELETED');
+            res.redirect("/admin/products");
+        })
+        .catch(err => console.log('ERROR_postDeleteProduct: ', err))
+};
