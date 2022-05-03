@@ -14,8 +14,15 @@ exports.postAddProduct = (req, res, next) => {
   const price = Number(req.body.price);
   const description = req.body.description;
 
-  const product = new Product(title, price, imageUrl, description);
-  console.log(product);
+  const product = new Product(
+    title,
+    price,
+    imageUrl,
+    description,
+    null,
+    req.user._id
+  );
+  // console.log(product);
   product
     .save()
     .then((result) => {
@@ -83,11 +90,11 @@ exports.getProducts = (req, res, next) => {
 };
 
 exports.postDeleteProduct = (req, res, next) => {
-    const prodId = req.body.productId;
-    Product.deleteProduct(prodId)
-        .then(result => {
-            console.log('Mess_postDeleteProduct: DELETED');
-            res.redirect("/admin/products");
-        })
-        .catch(err => console.log('ERROR_postDeleteProduct: ', err))
+  const prodId = req.body.productId;
+  Product.deleteProduct(prodId)
+    .then((result) => {
+      console.log("Mess_postDeleteProduct: DELETED");
+      res.redirect("/admin/products");
+    })
+    .catch((err) => console.log("ERROR_postDeleteProduct: ", err));
 };

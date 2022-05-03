@@ -35,4 +35,4 @@ class User {
   }
 }
 
-exports.User = User;
+module.exports = User;
