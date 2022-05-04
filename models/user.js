@@ -6,7 +6,7 @@ class User {
     this.name = userName;
     this.email = email;
     this.cart = cart;
-    this.id = id;
+    this._id = id;
   }
 
   save() {
