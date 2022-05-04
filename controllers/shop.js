@@ -71,11 +71,11 @@ exports.postCart = (req, res, next) => {
   Product.findById(prodId)
     .then((product) => {
       // console.log("POST_Cart", product);
-      return req.user.addToCart(product);
+      return req.user.addToCart(product);  // LAB06_19 Fix bug (add return )
     })
     .then((result) => {
       console.log(result);
-      res.redirect("/cart");
+      res.redirect("/cart"); // LAB06_19 Fix bug (add res.redirect("/cart"); )
     })
     .catch((err) => {
       console.log(err);
