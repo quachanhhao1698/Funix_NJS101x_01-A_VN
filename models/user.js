@@ -85,8 +85,9 @@ class User {
       .collection("orders")
       .insertOne(this.cart)
       .then((result) => {
+        this.cart = {items: []}
         return db
-          .collection("user")
+          .collection("users")
           .updateOne(
             { _id: new mongodb.ObjectId(this._id) },
             { $set: { cart: { items: [] } } }
