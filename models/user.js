@@ -81,11 +81,19 @@ class User {
 
   addOrder() {
     const db = getDb();
-    return db
-      .collection("orders")
-      .insertOne(this.cart)
+    return this.getCart()
+      .then((products) => {
+        const order = {
+          items: products,
+          user: {
+            _id: new mongodb.ObjectId(this._id),
+            userName: this.userName,
+          },
+        };
+        return db.collection("orders").insertOne(order);
+      })
       .then((result) => {
-        this.cart = {items: []}
+        this.cart = { items: [] };
         return db
           .collection("users")
           .updateOne(
