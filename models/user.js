@@ -40,7 +40,7 @@ class User {
     }
 
     const updatedCart = {
-      items: updatedCartItems
+      items: updatedCartItems,
     };
 
     const db = getDb();
@@ -50,6 +50,33 @@ class User {
         { _id: new mongodb.ObjectId(this._id) },
         { $set: { cart: updatedCart } }
       );
+  }
+
+  getCart() {
+    const db = getDb();
+    // Tìm danh sách productId trong Cart
+    const prodIds = this.cart.items.map((i) => {
+      // console.log("id :", i.productId.toString());
+      return i.productId;
+    });
+    return db
+      .collection("products")
+      .find({ _id: { $in: prodIds } }) // tìm id trong Product thuộc danh sách productId trên
+      .toArray()
+      .then((products) => {
+        // console.log('product: ', products);
+        return products.map((p) => {
+          return {
+            ...p,
+            quantity: this.cart.items.find((i) => {
+              return i.productId.toString() === p._id.toString();
+            }).quantity,
+          };
+        });
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   }
 
   static findById(id) {
