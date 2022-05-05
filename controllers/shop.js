@@ -1,5 +1,4 @@
 const Product = require("../models/product");
-const Order = require("../models/order");
 
 exports.getProducts = (req, res, next) => {
   Product.fetchAll()
@@ -105,7 +104,7 @@ exports.getOrders = (req, res, next) => {
   req.user
     .getOrders()
     .then((orders) => {
-      console.log("MESS order", orders);
+      console.log("MESS_order", orders);
       res.render("shop/orders", {
         path: "/orders",
         pageTitle: "Your Orders",
