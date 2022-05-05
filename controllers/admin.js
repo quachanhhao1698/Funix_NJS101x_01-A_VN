@@ -88,7 +88,7 @@ exports.getProducts = (req, res, next) => {
 
 exports.postDeleteProduct = (req, res, next) => {
   const prodId = req.body.productId;
-  Product.deleteProduct(prodId)
+  Product.findByIdAndDelete(prodId)
     .then((result) => {
       console.log("Mess_postDeleteProduct: DELETED");
       res.redirect("/admin/products");
