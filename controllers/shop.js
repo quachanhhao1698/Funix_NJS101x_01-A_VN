@@ -26,16 +26,6 @@ exports.getProduct = (req, res, next) => {
       });
     })
     .catch((err) => console.log(err));
-
-  // Product.findByPk(prodId)
-  //   .then(products => {
-  //     res.render("shop/product-detail", {
-  //       product: products,
-  //       pageTitle: products.title,
-  //       path: "/products",
-  //     });
-  //   })
-  //   .catch((err) => console.log(err));
 };
 
 exports.getIndex = (req, res, next) => {
