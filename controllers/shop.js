@@ -2,12 +2,15 @@ const Product = require("../models/product");
 
 exports.getProducts = (req, res, next) => {
   Product.find({})
+  // .select('title price -_id')
+  // .populate('userId')
     .then((products) => {
       res.render("shop/product-list", {
         prods: products,
         pageTitle: "All Products",
         path: "/products",
       });
+      console.log(products);
     })
     .catch((err) => console.log(err));
 };
