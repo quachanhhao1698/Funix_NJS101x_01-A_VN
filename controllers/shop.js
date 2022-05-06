@@ -91,8 +91,8 @@ exports.postOrder = (req, res, next) => {
     .populate("cart.items.productId")
     .then((user) => {
       const products = user.cart.items.map((i) => {
-        console.log('product in map() ',i);
-        return { quantity: i.quantity, productData: {...i.productId._doc} };
+        console.log("product in map() ", i);
+        return { quantity: i.quantity, productData: { ...i.productId._doc } };
       });
       const order = new Order({
         user: {
@@ -101,10 +101,13 @@ exports.postOrder = (req, res, next) => {
         },
         products: products,
       });
-      console.log('oder: ',order);
+      console.log("oder: ", order);
       order.save();
     })
     .then((result) => {
+      return req.user.clearCart();
+    })
+    .then(() => {
       res.redirect("/orders");
     })
     .catch((err) => console.log("ERROR_postOrder: ", err));
