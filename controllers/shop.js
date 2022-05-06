@@ -10,7 +10,7 @@ exports.getProducts = (req, res, next) => {
         pageTitle: "All Products",
         path: "/products",
       });
-      console.log(products);
+      // console.log(products);6 nnj99,jb
     })
     .catch((err) => console.log(err));
 };
@@ -46,12 +46,14 @@ exports.getIndex = (req, res, next) => {
 
 exports.getCart = (req, res, next) => {
   req.user
-    .getCart()
-    .then((products) => {
+    .populate("cart.items.productId")
+    .then((user) => {
+      console.log(user.cart.items);
+      const products = user.cart.items;
       res.render("shop/cart", {
         path: "/cart",
         pageTitle: "Your Cart",
-        products: products,
+        products: products
       });
     })
     .catch((err) => console.log(err));
