@@ -2,8 +2,8 @@ const Product = require("../models/product");
 
 exports.getProducts = (req, res, next) => {
   Product.find({})
-  // .select('title price -_id')
-  // .populate('userId')
+    // .select('title price -_id')
+    // .populate('userId')
     .then((products) => {
       res.render("shop/product-list", {
         prods: products,
@@ -59,7 +59,6 @@ exports.getCart = (req, res, next) => {
 
 exports.postCart = (req, res, next) => {
   const prodId = req.body.productId;
-
   Product.findById(prodId)
     .then((product) => {
       // console.log("POST_Cart", product);
